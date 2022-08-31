@@ -1,16 +1,65 @@
-# flutter_fundamental_3
+# Flutter Fundamental - Bagian 3
 
-A new Flutter project.
+## Tujuan Praktikum
 
-## Getting Started
+Setelah menyelesaikan codelab ini Anda akan mampu untuk:
 
-This project is a starting point for a Flutter application.
+* Menerapkan jenis-jenis gesture
+* Menerapkan input widget dan controllernya
+* Menerapkan custom input dan FormField widget
 
-A few resources to get you started if this is your first Flutter project:
+## Praktikum 1: Menerapkan Gesture Detector
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![Gesture Detector On Tap](./images/1.PNG)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Jika Anda coba klik/tap pada gambar, maka angka di bawah akan terus bertambah. Mengapa demikian?
+
+* Karena terdapat widget GestureDetector yang membungkus sebuah widget onTap yang berisi function _incrementCounter. Serta ada juga widget image dan widget text di GestureDetector ini. Sehingga jika di klik sekali maka akan menjalankan function _incrementCounter.
+
+### Eksperimen Jenis Gesture Lain
+
+#### On Double Tap
+
+![Gesture Detector On Double Tap](./images/2.PNG)
+
+* Pada gesture (On Double Tap) ini, kita perlu klik gambar sebanyak 2 kali untuk melakukan increment angka.
+
+
+#### On Long Press
+
+![Gesture Detector On Long Press](./images/3.PNG)
+
+* Pada gesture (On Long Press) ini, kita perlu klik tahan agak lama untuk melakukan increment angka.
+
+<hr>
+
+## Praktikum 2: Menerapkan Input Widget dan Forms
+
+![Menerapkan Input Widget dan Forms](./images/4.PNG)
+
+* Menggunakan GlobalKey adalah cara yang disarankan untuk mengakses formulir. Namun, jika Anda memiliki pohon widget yang lebih kompleks, Anda bisa menggunakan metode Form.of() untuk mengakses formulir di dalam widget bersarang.
+
+* TextFormField membungkus TextField dan mengintegrasikannya dengan Formulir terlampir. Ini menyediakan fungsionalitas tambahan, seperti validasi dan integrasi dengan widget FormField lainnya.
+
+* Validasi input dengan menyediakan fungsi validator() ke TextFormField. Jika input pengguna tidak valid, fungsi validator mengembalikan String yang berisi pesan kesalahan. Jika tidak ada kesalahan, validator harus mengembalikan null.
+
+* AddListener() berfungsi untuk mencetak nilai terbaru, dengarkan controller untuk perubahan.
+
+<hr>
+
+## Praktikum 3: Menerapkan Custom Input dan FormField Widget
+
+![Menerapkan Input Widget dan Forms](./images/5.PNG)
+
+Pada praktikum ini, menerapkan custom input angka. Inputannya selayaknya PIN yang memiliki panjang 6 karakter.
+
+
+
+
+
+
+
+
+
+
+
