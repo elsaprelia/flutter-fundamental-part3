@@ -1,4 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_fundamental_3/basic_gesture/onTap.dart';
+import 'package:flutter_fundamental_3/custom_input/input_fields.dart';
+import 'package:flutter_fundamental_3/forms.dart';
+
+import 'package:flutter_fundamental_3/masukan_kustom/input_fields.dart'
+    show VerificationCodeFormField;
 
 void main() {
   runApp(const MyApp());
@@ -48,6 +55,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final TextEditingController _controller = TextEditingController.fromValue(
+      const TextEditingValue(text: "isi angka saja"));
+
   int _counter = 0;
 
   void _incrementCounter() {
@@ -75,27 +85,27 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        child: GestureDetector(
-          onTap: _incrementCounter,        // Center is a layout widget. It takes a single child and positions it
-        child: Column(
-          
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const MyImageWidget(),
-            
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+      body: Container(
+        child: Form(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              VerificationCodeFormField(controller: _controller),
+              Builder(
+                builder: (BuildContext subContext) => ElevatedButton(
+                  onPressed: () {
+                    final valid = Form.of(subContext)?.validate();
+                    if (kDebugMode) {
+                      print("valid: $valid");
+                    }
+                  },
+                  child: const Text("validate"),
+                ),
+              )
+            ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
